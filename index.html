@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      vertical-align: middle;
+    }
+
+    body {
+      background-color: #999;
+    }
+
+    [draggable="true"] {
+      /*
+   To prevent user selecting inside the drag source
+  */
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+
+    #eq_list {
+      width: 300px;
+      height: 100px;
+      border: 1px solid #000;
+    }
+
+    #canvas_top .item {
+      position: absolute;
+      font-size: 0;
+    }
+
+    #canvas_top {
+      position: relative;
+    }
+
+    .item img {
+      width: 50px;
+      filter: drop-shadow(1px 1px 1px #000);
+    }
+  </style>
+</head>
+
+<body>
+
+  <input type="file" name="updata" id="updata">
+
+  <select name="identification" id="identification">
+    <option value="kitchen" selected>廚房</option>
+    <option value="bedroom">臥房</option>
+    <option value="livingroom">客廳</option>
+  </select>
+  區域名稱
+  <input type="text" id="text" placeholder="輸入文字" value="某某廚房">
+  <input type="text" id="textfont" placeholder="文字大小" value="16">
+  文字顏色
+  <select name="color" id="textcolor">
+    <option value="#fff">白色</option>
+    <option value="#000" selected>黑色</option>
+  </select>
+  背景顏色
+  <select name="color" id="color">
+    <option value="#fff" selected>白色</option>
+    <option value="#000">黑色</option>
+  </select>
+  邊框顏色
+  <select name="color" id="bordercolor">
+    <option value="#f00" selected>紅色</option>
+    <option value="#000">黑色</option>
+  </select>
+  繪製區域模式
+  <input type="checkbox" name="paint_mode" id="paint_mode">
+  拖曳設備模式
+  <input type="checkbox" name="eq_mode" id="eq_mode">
+  <br>
+  <div id="canvas_top" style="display:inline-block;" data-role="drag-drop-container">
+    <canvas id="canvas" draggable="false">
+      <div style="position: absolute;">akjdklas</div>
+    </canvas>
+  </div>
+  <div id="eq_list" style="display:inline-block;" data-role="drag-drop-container">
+    <div class="item" id="door" draggable="true"><img src="./door-close.png" draggable="false">門</div>
+    <div class="item" id="light" draggable="true"><img src="./light-rgb.png" draggable="false">燈</div>
+  </div>
+  <div id="livingroom">
+    客廳<button class="alert">火警</button>
+    <button class="alert">跌倒</button>
+    <button class="alert">摔跤</button>
+  </div>
+  <div id="kitchen">
+
+    廚房<button class="alert">火警</button>
+    <button class="alert">跌倒</button>
+    <button class="alert">摔跤</button>
+  </div>
+  <div id="bedroom">
+    臥室<button class="alert">火警</button>
+    <button class="alert">跌倒</button>
+    <button class="alert">摔跤</button>
+  </div>
+  <!-- <button id="out">輸出</button> -->
+  <!-- <div id="svg"></div> -->
+  <script src="canvas.js"></script>
+
+</body>
+
+</html>
