@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+
+body {
+  background-color: #999;
+}
+
+[draggable="true"] {
+  /*
+To prevent user selecting inside the drag source
+*/
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.alert_clear{
+  background-color: #0c8;
+}
+
+#eq_list {
+  width: 300px;
+  height: 100px;
+  border: 1px solid #000;
+}
+
+#canvas_top .item {
+  position: absolute;
+  font-size: 0;
+}
+
+#canvas_top {
+  position: relative;
+}
+
+.item img {
+  width: 50px;
+  filter: drop-shadow(1px 1px 1px #000);
+}

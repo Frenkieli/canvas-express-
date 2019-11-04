@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= title %></title>
+  <link rel='stylesheet' href='stylesheets/style.css' />
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js'></script>
+</head>
+
+<body>
+
+  <input type="file" name="updata" id="updata">
+  <input type="text" id="areaname" placeholder="輸入文字" value="某某廚房">
+  <button id="addareas">新增地點</button>
+  <button id="deleteareas">刪除地點</button>
+  <select name="areas" id="areas">
+
+  </select>
+  <input type="text" id="textfont" placeholder="文字大小" value="16">
+  文字顏色
+  <select name="color" id="textcolor">
+    <option value="#fff">白色</option>
+    <option value="#000" selected>黑色</option>
+  </select>
+  <!-- 背景顏色
+  <select name="color" id="color">
+    <option value="#fff" selected>白色</option>
+    <option value="#000">黑色</option>
+  </select> -->
+  邊框顏色
+  <select name="color" id="bordercolor">
+    <option value="#f00" selected>紅色</option>
+    <option value="#000">黑色</option>
+  </select>
+  繪製區域模式
+  <input type="checkbox" name="paint_mode" id="paint_mode">
+  拖曳設備模式
+  <input type="checkbox" name="eq_mode" id="eq_mode">
+  刪除區塊模式
+  <input type="checkbox" name="delete_mode" id="delete_mode">
+  <br>
+  <div id="canvas_top" style="display:inline-block;" data-role="drag-drop-container">
+    <canvas id="canvas" draggable="false">
+      <div style="position: absolute;">akjdklas</div>
+    </canvas>
+  </div>
+  <div id="eq_list" style="display:inline-block;" data-role="drag-drop-container">
+    <!-- <div class="item" id="door" draggable="true"><img src="./images/door-close.png" draggable="false">門</div>
+    <div class="item" id="light" draggable="true"><img src="./images/light-rgb.png" draggable="false">燈</div> -->
+  </div>
+  <div id="1">
+    客廳<button class="alert">火警</button>
+    <button class="alert">跌倒</button>
+    <button class="alert">摔跤</button>
+    <button class="alert_clear">火警</button>
+    <button class="alert_clear">跌倒</button>
+    <button class="alert_clear">摔跤</button>
+  </div>
+  <div id="2">
+
+    廚房<button class="alert">火警</button>
+    <button class="alert">跌倒</button>
+    <button class="alert">摔跤</button>
+    <button class="alert_clear">火警</button>
+    <button class="alert_clear">跌倒</button>
+    <button class="alert_clear">摔跤</button>
+  </div>
+  <div id="3">
+    臥室<button class="alert">火警</button>
+    <button class="alert">跌倒</button>
+    <button class="alert">摔跤</button>
+    <button class="alert_clear">火警</button>
+    <button class="alert_clear">跌倒</button>
+    <button class="alert_clear">摔跤</button>
+  </div>
+  <!-- <button id="out">輸出</button> -->
+  <!-- <div id="svg"></div> -->
+  <script src="javascripts/model.js"></script>
+  <script src="javascripts/view.js"></script>
+  <script src="javascripts/controller.js"></script>
+</body>
+
+</html>
