@@ -53,21 +53,45 @@ async function postAxios(cmd, data, id = '') {
   })
   return returnres;
 }
-// 改
+// 全改
 async function putAxios(cmd, data, id = '') {
   let returnres;
   await axios.put(baseURL + cmd + '/' + id, data).then(res => {
     return res.data;
   }).then(res => {
     returnres = res;
-    database[cmd].filter(function(value,index){
-      if(res.id==value.id){
+    database[cmd].filter(function (value, index) {
+      if (res.id == value.id) {
         database[cmd][index] = res;
       }
     })
     // console.log(cmd, value, 'putAxios',res);
+    if (cmd == "devices") {
+      devicesStateModify(res);
+    }
   }).catch(err => {
     console.log(err);
+  })
+  return returnres;
+}
+// 改一部分
+async function patchAxios(cmd, data, id = '') {
+  let returnres;
+  await axios.patch(baseURL + cmd + '/' + id, data).then(res => {
+    return res.data;
+  }).then(res => {
+    returnres = res;
+    database[cmd].filter(function (value, index) {
+      if (res.id == value.id) {
+        database[cmd][index] = res;
+      }
+    })
+    // console.log(cmd, value, 'putAxios',res);
+    if (cmd == "devices") {
+      devicesStateModify(res);
+    }
+  }).catch(err => {
+    // console.log(err);
   })
   return returnres;
 }
@@ -77,10 +101,10 @@ async function deleteAxios(cmd, id = '') {
   await axios.delete(baseURL + cmd + '/' + id).then(res => {
     return res.data;
   }).then(res => {
-    console.log(cmd, res, 'deleteAxios');
+    // console.log(cmd, res, 'deleteAxios');
     returnres = res;
   }).catch(err => {
-    console.log(err);
+    // console.log(err);
   })
   return returnres;
 }
@@ -93,8 +117,12 @@ Promise.all([dataAxios('devices'), dataAxios('areas'), dataAxios('plan')]).then(
   }
   if (database['devices'].length != 0) {
     // console.log(database['devices'], 'devices');
-    database['devices'].forEach((value,index)=>{
-      appendDevices(value);
+    database['devices'].forEach((value, index) => {
+      if (!value.style.x) {
+        appendDevices(value);
+      } else {
+        appendDevices(value, 'canvas_top');
+      }
     })
   }
   if (database['areas'].length != 0) {
@@ -111,5 +139,5 @@ Promise.all([dataAxios('devices'), dataAxios('areas'), dataAxios('plan')]).then(
       }
     });
   }
-  console.log(database,'database');
+  console.log(database, 'database');
 })

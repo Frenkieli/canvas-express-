@@ -48,39 +48,34 @@
     </canvas>
   </div>
   <div id="eq_list" style="display:inline-block;" data-role="drag-drop-container">
+    <!-- 面向客戶端的應該不用添加設備 -->
+    <div class="item" id="add_devices" draggable="false"><img src="./images/all.png" draggable="false">未設置設備清單</div>
     <!-- <div class="item" id="door" draggable="true"><img src="./images/door-close.png" draggable="false">門</div>
     <div class="item" id="light" draggable="true"><img src="./images/light-rgb.png" draggable="false">燈</div> -->
   </div>
-  <div id="1">
-    客廳<button class="alert">火警</button>
-    <button class="alert">跌倒</button>
-    <button class="alert">摔跤</button>
-    <button class="alert_clear">火警</button>
-    <button class="alert_clear">跌倒</button>
-    <button class="alert_clear">摔跤</button>
+  <div id="connection_area">
+    與區域連動警報設備
   </div>
-  <div id="2">
-
-    廚房<button class="alert">火警</button>
-    <button class="alert">跌倒</button>
-    <button class="alert">摔跤</button>
-    <button class="alert_clear">火警</button>
-    <button class="alert_clear">跌倒</button>
-    <button class="alert_clear">摔跤</button>
-  </div>
-  <div id="3">
-    臥室<button class="alert">火警</button>
-    <button class="alert">跌倒</button>
-    <button class="alert">摔跤</button>
-    <button class="alert_clear">火警</button>
-    <button class="alert_clear">跌倒</button>
-    <button class="alert_clear">摔跤</button>
-  </div>
+  <h2>假裝有跟websocket連線的測試</h2>
+    大門<button id="test_door">測試開</button><button id="test_door_close">測試關</button>
+    燈光<button id="test_light">測試開</button><button id="test_light_close">測試關</button>
+    玻璃<button id="test_windows">測試開</button><button id="test_windows_close">測試關</button>
   <!-- <button id="out">輸出</button> -->
   <!-- <div id="svg"></div> -->
+
+  <div id="devices_info">
+    <h2 id="devices_info_title">這是設備標題</h2>
+    <div id="devices_info_controller"></div>
+    <div id="devices_info_view"></div>
+    <p>連動警報</p>
+    <div id="devices_info_select"></div>
+  </div>
+
   <script src="javascripts/model.js"></script>
   <script src="javascripts/view.js"></script>
   <script src="javascripts/controller.js"></script>
+  <script src="javascripts/fakewebsocket.js"></script>
+
 </body>
 
 </html>
